@@ -21,23 +21,39 @@ const { title } = Astro.props;
     </head>
     <body>
         <slot />
-    </body><style is:global>
-        @import "open-props/style";
-        @import "open-props/normalize";
-        @import "open-props/buttons";
-        @import "open-props/animations";
+        <style is:global>
+            @import "open-props/style";
+            @import "open-props/normalize";
+            @import "open-props/buttons";
+            @import "open-props/animations";
 
-        :root {
-        }
+            :root {
+            }
 
-        html {
-            background: #000;
-        }
+            html {
+                background: #000;
+            }
 
-        body {
-            max-width: 2000px;
-            margin: 0 auto;
-            overflow-x: hidden;
-        }
-    </style>
+            body {
+                margin: 0 auto;
+                overflow-x: hidden;
+            }
+
+            a:link {
+                text-decoration: none;
+            }
+
+            a:visited {
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: none;
+            }
+
+            a:active {
+                text-decoration: none;
+            }
+        </style>
+    </body>
 </html>

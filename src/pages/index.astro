@@ -4,35 +4,41 @@ import Card from "../components/Card.astro";
 import { getCollection } from "astro:content";
 
 const allColors = await getCollection("colors");
+const sortedColors = allColors.sort((a, b) => a.data.id - b.data.id);
 ---
 
 <Layout title="Welcome to Astro.">
     <main>
-        <div class="container">
-            {
-                allColors.map((color, index) => {
-                    return (
-                        <a href={`colors/${color.slug}`} class="link">
-                            <Card
-                                order={index}
-                                name={color.data.name}
-                                pantone={color.data.pantone}
-                                hex={color.data.hex}
-                                rgb={color.data.rgb}
-                                cmyk={color.data.cmyk}
-                            />
-                        </a>
-                    );
-                })
-            }
+        <div class="wrapper">
+            <div class="container">
+                {
+                    sortedColors.map((color, index) => {
+                        return (
+                            <a href={`colors/${color.slug}`} class="link">
+                                <Card
+                                    order={index}
+                                    name={color.data.name}
+                                    pantone={color.data.pantone}
+                                    hex={color.data.hex}
+                                    rgb={color.data.rgb}
+                                    cmyk={color.data.cmyk}
+                                    textColor={color.data.textColor}
+                                />
+                            </a>
+                        );
+                    })
+                }
+            </div>
         </div>
     </main>
 </Layout>
 
 <style>
     .container {
-        display: grid;
+        display: flex;
+        flex-wrap: wrap;
         gap: 1rem;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        margin: 0 auto;
+        padding: 1rem;
     }
 </style>

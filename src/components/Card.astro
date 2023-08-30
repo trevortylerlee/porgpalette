@@ -6,9 +6,10 @@ interface Props {
     rgb: string;
     cmyk: string;
     order: number;
+    textColor: string;
 }
 
-const { name, pantone, hex, rgb, cmyk, order } = Astro.props;
+const { name, pantone, hex, rgb, cmyk, order, textColor } = Astro.props;
 
 const hexCode = "#" + hex;
 const animationDelay = order;
@@ -21,9 +22,9 @@ const animationDelay = order;
     <p>{rgb}</p>
     <p>{cmyk}</p>
 </li>
-<style define:vars={{ hexCode, animationDelay }}>
+<style define:vars={{ hexCode, animationDelay, textColor }}>
     .link-card {
-        min-width: 100%;
+        width: 360px;
         margin: 0;
         padding: 2rem 2rem 8rem 2rem;
         list-style: none;
@@ -34,8 +35,9 @@ const animationDelay = order;
             var(--animation-fade-in) forwards,
             var(--animation-slide-in-up);
         animation-duration: 500ms;
-        animation-delay: calc(var(--animationDelay) * 0.15s);
+        animation-delay: calc(var(--animationDelay) * 0.08s);
         animation-timing-function: var(--ease-spring-1);
+        color: var(--textColor);
     }
 
     h1 {
@@ -43,5 +45,6 @@ const animationDelay = order;
         font-weight: bold;
         line-height: 2;
         margin-bottom: 2rem;
+        color: var(--textColor);
     }
 </style>

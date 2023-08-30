@@ -16,7 +16,7 @@ const { Content } = await color.render();
 
 <Layout title={color.data.name}>
     <div transition:persist class={`hex${color.data.hex} container`}>
-        <h1>{color.data.name}</h1>
+        <h1 class={color.data.textColor}>{color.data.name}</h1>
         <ul>
             <li>{color.data.pantone}</li>
             <li>{color.data.hex}</li>
@@ -39,6 +39,14 @@ const { Content } = await color.render();
         height: 100vh;
     }
 
+    .black {
+        color: black;
+    }
+
+    .white {
+        color: white;
+    }
+
     /* Magican's Red */
     .hexD1240D {
         background-color: #d1240d;
@@ -49,5 +57,23 @@ const { Content } = await color.render();
     .hex801B0B {
         background-color: #801b0b;
         color: white;
+    }
+
+    /* Nivellan Brown */
+    .hexC46647 {
+        background-color: #c46647;
+        color: black;
+    }
+
+    /* Aztec Gold */
+    .hexE7B34E {
+        background-color: #e7b34e;
+        color: black;
+    }
+
+    /* Tatooine */
+    .hexE6D5C1 {
+        background-color: #e6d5c1;
+        color: black;
     }
 </style>
