@@ -1,0 +1,53 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+import { getCollection } from "astro:content";
+export async function getStaticPaths() {
+    const allColors = await getCollection("colors");
+    return allColors.map((color) => ({
+        params: { slug: color.slug },
+        props: { color },
+    }));
+}
+
+const { color } = Astro.props;
+const { Content } = await color.render();
+---
+
+<Layout title={color.data.name}>
+    <div transition:persist class={`hex${color.data.hex} container`}>
+        <h1>{color.data.name}</h1>
+        <ul>
+            <li>{color.data.pantone}</li>
+            <li>{color.data.hex}</li>
+            <li>{color.data.rgb}</li>
+            <li>{color.data.cmyk}</li>
+        </ul>
+        <Content />
+    </div>
+</Layout>
+
+<style>
+    .container {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+    }
+
+    /* Magican's Red */
+    .hexD1240D {
+        background-color: #d1240d;
+        color: white;
+    }
+
+    /* Strange Red */
+    .hex801B0B {
+        background-color: #801b0b;
+        color: white;
+    }
+</style>
