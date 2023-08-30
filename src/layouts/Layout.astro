@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import "@fontsource-variable/martian-mono";
 
 interface Props {
     title: string;
@@ -53,6 +54,17 @@ const { title } = Astro.props;
 
             a:active {
                 text-decoration: none;
+            }
+
+            .color-heading {
+                font-family: "Helvetica", sans-serif;
+                font-weight: 600;
+            }
+
+            .color-text {
+                font-family: "Martian Mono Variable", serif;
+                font-weight: 400;
+                font-size: var(--font-size-1);
             }
         </style>
     </body>

@@ -16,11 +16,11 @@ const animationDelay = order;
 ---
 
 <li class="link-card" transition:persist>
-    <h1>{name}</h1>
-    <p>{pantone}</p>
-    <p>{hex}</p>
-    <p>{rgb}</p>
-    <p>{cmyk}</p>
+    <h1 class="color-heading">{name}</h1>
+    <p class="color-text">Pantone: {pantone}</p>
+    <p class="color-text">Hex: {hex}</p>
+    <p class="color-text">RGB: {rgb}</p>
+    <p class="color-text">CMYK: {cmyk}</p>
 </li>
 <style define:vars={{ hexCode, animationDelay, textColor }}>
     .link-card {
@@ -42,7 +42,6 @@ const animationDelay = order;
 
     h1 {
         font-size: 2.5rem;
-        font-weight: bold;
         line-height: 2;
         margin-bottom: 2rem;
         color: var(--textColor);

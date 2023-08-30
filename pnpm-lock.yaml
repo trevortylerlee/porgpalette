@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@fontsource-variable/martian-mono':
+    specifier: ^5.0.8
+    version: 5.0.8
   astro:
     specifier: ^2.10.14
     version: 2.10.14
@@ -746,6 +749,10 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@fontsource-variable/martian-mono@5.0.8:
+    resolution: {integrity: sha512-CX/n6g6Qhv4HtG5zLDXcneNH7hjzf8MyVAo8V/6nbYtKqnaQEUnnUgkRhytR23wt+NLJJpCGPuVVSnfD1xBNvA==}
+    dev: false
 
   /@jridgewell/gen-mapping@0.3.3:
     resolution: {integrity: sha512-HLhSWOLRi875zjjMG/r+Nv0oCW8umGb0BgEhyX3dDX3egwZtB8PqLnjz3yedt8R5StBrzcg4aBpnh8UA9D1BoQ==}
