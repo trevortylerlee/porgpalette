@@ -16,13 +16,27 @@ const { Content } = await color.render();
 
 <Layout title={color.data.name}>
     <div transition:persist class={`hex${color.data.hex} container`}>
-        <h1 class={color.data.textColor}>{color.data.name}</h1>
-        <ul>
-            <li>{color.data.pantone}</li>
-            <li>{color.data.hex}</li>
-            <li>{color.data.rgb}</li>
-            <li>{color.data.cmyk}</li>
-        </ul>
+        <!-- <div class="image-container">
+            <img
+                class="greyscale"
+                src="/jurassic-park.jpg"
+                alt="Jurassic Park"
+                width={300}
+                height={100}
+            />
+            <caption>Jurassic Park (1985)</caption>
+        </div> -->
+        <div class="color-info">
+            <h1 class={`${color.data.textColor} color-heading`}>
+                {color.data.name}
+            </h1>
+            <ul class="color-text">
+                <li>Pantone: {color.data.pantone}</li>
+                <li>Hex: {color.data.hex}</li>
+                <li>RGB: {color.data.rgb}</li>
+                <li>CMYK: {color.data.cmyk}</li>
+            </ul>
+        </div>
         <Content />
     </div>
 </Layout>
@@ -33,10 +47,37 @@ const { Content } = await color.render();
         display: flex;
         flex-direction: column;
         justify-content: center;
+        gap: 2rem;
+        align-items: center;
         top: 0;
         left: 0;
         width: 100%;
         height: 100vh;
+    }
+
+    ul {
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+        padding: 0;
+        animation:
+            var(--animation-fade-in) forwards,
+            var(--animation-slide-in-left);
+        animation-timing-function: var(--ease-squish-2);
+    }
+
+    h1 {
+        animation:
+            var(--animation-fade-in) forwards,
+            var(--animation-slide-in-right);
+        animation-timing-function: var(--ease-squish-2);
+    }
+
+    .greyscale {
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
     }
 
     .black {
@@ -45,6 +86,14 @@ const { Content } = await color.render();
 
     .white {
         color: white;
+    }
+
+    .image-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.25rem;
     }
 
     /* Magican's Red */

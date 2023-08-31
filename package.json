@@ -11,7 +11,7 @@
     },
     "dependencies": {
         "@fontsource-variable/martian-mono": "^5.0.8",
-        "astro": "^2.10.14",
+        "astro": "^3.0.2",
         "open-props": "^1.5.15"
     },
     "devDependencies": {
